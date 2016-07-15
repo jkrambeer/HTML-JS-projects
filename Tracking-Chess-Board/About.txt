@@ -1,1 +1,3 @@
-An HTML/JS page for my Information Security course. It is used show how websites can try to discover the history of users who visit their site.
+An HTML/JS page for my Information Security course.
+It is used show how websites can try to discover the history of users who visit their site.
+Written for Chrome/Firefox
