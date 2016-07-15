@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<!-- Joseph Krambeer, Tim Huynh-->
+
+<html lang="en">
+
+<head>
+<title>Assigment 6 Prob 2</title>
+
+<!--CSS BEGIN-->
+<style type="text/css">
+body
+{
+	border       : 0px;
+	margin       : 0px;
+	height       : 99.5vh;
+	width        : 99.75%;
+	padding-top  : .5vh;
+	padding-left : .25%;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size  : 14pt;
+	
+	background: blue;
+	background: -moz-linear-gradient(bottom right, blue, white); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(to bottom right, blue, white); /* Standard syntax */
+}
+
+.disable
+{
+	/* Disabling cursor changes and link over addresses */
+	pointer-events  : none; 
+	cursor          : default; 
+}
+
+.noselect
+{
+	/* Disabling selecting/highlighting text */
+	-webkit-user-select : none;   /* Chrome/Safari/Opera */
+	-moz-user-select    : none;   /* Firefox */
+	-ms-user-select     : none;   /* Internet Explorer/Edge */
+}
+
+#chessContainer
+{
+	border      : 6px solid #CFB53B;
+	font-size   : 42pt;
+	font-family : "Courier New", Courier, monospace;
+	text-align  : center;
+	width       : 640px;
+	height      : 640px;
+	float       : left;
+	cursor      : default; 
+}
+
+.chessBrown
+{
+	border           : 0px;
+	color            : #000000;
+	background-color : #A2846C;
+	width            : 12.5%;
+	height           : 12.5%;
+	line-height      : 1.5em; 
+	float            : left;
+	
+}
+
+.chessBlack
+{
+	border           : 0px;
+	color            : #A2846C;
+	background-color : #000000;
+	width            : 12.5%;
+	height           : 12.5%;
+	line-height      : 1.5em;  
+	float            : left;	
+}
+
+.allowEvents
+{
+	/* Used to work around disabling events on rest of board*/
+	pointer-events: all;
+}
+
+.chessLink
+{
+	-webkit-user-select : none;   /* Chrome/Safari/Opera */
+	-moz-user-select    : none;   /* Firefox */
+	-ms-user-select     : none;   /* Internet Explorer/Edge */
+								  
+	pointer-events  : none; 
+	cursor          : default; 
+	
+	text-decoration : none;
+	width           : 100%;
+}
+
+/* Only non-visited links are visible */
+a.black:link    { color: #A2846C; }
+a.black:visited { color: #000000; }
+
+a.brown:link    { color: #000000; }
+a.brown:visited { color: #A2846C; }
+
+#button
+{
+	clear      : left;
+	float      : left;
+	margin-top : 10px;
+}
+
+#textbox
+{
+	clear  : left;
+	float  : left;
+}
+
+#sitetext
+{
+	float : left;
+	margin-left:10px;
+}
+
+.text{margin: 5px;}
+</style>
+<!--CSS END-->
+
+<!--SCRIPT BEGIN-->
+<script type="text/javascript">
+//Sites to check:
+//http://www.stthomas.edu/cisc/ 
+//http://www.stthomas.edu/chemistry/
+//http://www.stthomas.edu/physics/
+//http://www.stthomas.edu/economics/ 
+//http://www.stthomas.edu/biology/
+
+//Global Vars to hold whether they visited the particular site or not
+var ciscVisited = false;
+var chemVisited = false;
+var physVisited = false;
+var econVisited = false;
+var biolVisited = false;
+
+window.onload=function()
+{
+	
+	//handle onclick event handlers to test what things they click
+	//on and thus what sites they have visited
+	
+	document.getElementById("button").onclick = checkVisited;
+	document.getElementById("test1").onclick = cisc;
+	document.getElementById("test2").onclick = chem;
+	document.getElementById("test3").onclick = phys;
+	document.getElementById("test4").onclick = econ;
+	document.getElementById("test5").onclick = biol;
+};
+
+function cisc(){ciscVisited = true;}
+function chem(){chemVisited = true;}
+function phys(){physVisited = true;}
+function econ(){econVisited = true;}
+function biol(){biolVisited = true;}
+
+function checkVisited()
+{
+	var result;
+	result = "";
+	
+	//Adding text if they click the icons (means they didn't visit it)
+	if(ciscVisited){result = result + "Computer Science ";}
+	if(chemVisited){result = result + "Chemistry ";}
+	if(physVisited){result = result + "Physics ";}
+	if(econVisited){result = result + "Economics ";}
+	if(biolVisited){result = result + "Biology "; }
+	
+	if(result.length>0)
+	{
+		result = "Have you considered "+result+"?";//creating the phrase
+	}
+	else
+	{
+		result = "CISC is best!";//if they visited them all show this text
+	}
+	
+	document.getElementById("textbox").innerHTML = result;
+}
+</script> <!--SCRIPT END--> 
+
+</head>
+
+<body>
+	<!-- Chessboard -->
+	<div id="chessContainer" class="noselect disabled" >
+		<!-- 1st Row -->
+		<div id="test1" class="chessBrown allowEvents"> <a class="chessLink brown" href="http://www.stthomas.edu/cisc/">&#9823 </a> </div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		
+		<!-- 2nd Row -->
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div id="test2" class="chessBrown allowEvents"> <a class="chessLink brown" href="http://www.stthomas.edu/chemistry/">&#9823 </a> </div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		
+		<!-- 3rd Row -->
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div id="test3" class="chessBlack allowEvents"> <a class="chessLink black" href="http://www.stthomas.edu/physics/">&#9823 </a> </div>
+		
+		<!-- 4th Row -->
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack">&#9823 </div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		
+		<!-- 5th Row -->
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div id="test4" class="chessBrown allowEvents"> <a class="chessLink brown" href="http://www.stthomas.edu/economics/">&#9823 </a> </div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		
+		<!-- 6th Row -->
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack">&#9823 </div>
+		<div class="chessBrown"></div>
+		
+		<!-- 7th Row -->
+		<div class="chessBrown">&#9823 </div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		
+		<!-- 8th Row -->
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div class="chessBrown"></div>
+		<div class="chessBlack"></div>
+		<div id="test5" class="chessBrown allowEvents"> <a class="chessLink brown" href="http://www.stthomas.edu/biology/">&#9823 </a> </div>
+	</div>
+	<!-- Text Area -->
+	<div id="sitetext">
+		<p class="text">Welcome to UST Degree Chess. To introduce you to how our site works click</p>
+		<p class="text">on all the pawns on the board to the left then click the submit button.</p>
+	</div>
+	<button id="button" type="button">Submit</button>
+	<p id="textbox"></p>
+</body>
+
+</html>
