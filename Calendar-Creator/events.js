@@ -7,9 +7,9 @@ var annualEvent=
 	"event":"Thanksgiving"
 },
 {
-	"month":10,
-	"day"  :18,
-	"event":"MyBirthDay"
+	"month":01,
+	"day"  :01,
+	"event":"First Day of Year"
 },
 {
 	"year" :2014,
